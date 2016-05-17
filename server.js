@@ -41,5 +41,5 @@ app.use('/', cats_controller);
 app.use('/', users_controller);
 
 
-var port = 3306;
+var port = process.env.PORT || 3000;
 app.listen(port);
