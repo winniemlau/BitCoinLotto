@@ -7,7 +7,24 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override')
 var cookieParser = require('cookie-parser');
-var session = require('express-session');
+var session = require('express-session'); 
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'jw0ch9vofhcajqg7.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+  user     : 'i56lsza5p1eh0yxi',
+  password : 'zwc7f1qkf29w0xdn',
+  database : 'r1kt0y6mc7oyncc9'
+});
+ 
+connection.connect();
+ 
+connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
+  if (err) throw err;
+ 
+  console.log('The solution is: ', rows[0].solution);
+});
+ 
+connection.end();
 
 var app = express();
 
