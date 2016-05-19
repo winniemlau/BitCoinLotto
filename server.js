@@ -29,7 +29,12 @@ connection.end();
 var app = express();
 
 //allow sessions
-app.use(session({ secret: 'app', cookie: { maxAge: 60000 }}));
+app.use(session({ 
+	secret: 'app', 
+	cookie: { maxAge: 60000 },
+	resave: true,
+	saveUninitialized: true
+}));
 app.use(cookieParser());
 
 //Serve static content for the app from the "public" directory in the application directory.
@@ -53,5 +58,5 @@ app.use('/', cats_controller);
 app.use('/', users_controller);
 
 
-var port = 3000;
+var port = process.env.PORT || 3000;
 app.listen(port);

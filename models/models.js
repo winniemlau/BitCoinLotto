@@ -29,7 +29,7 @@ var User = sequelizeConnection.define("users", {
 	username: {
 		type: Sequelize.STRING,
 	},
-  email: {
+  	email: {
     type: Sequelize.STRING,
   },
 	password_hash: {

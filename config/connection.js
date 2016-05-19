@@ -3,15 +3,26 @@
 // *********************************************************************************
 
 // Dependencies
-var Sequelize = require("sequelize");
+var Sequelize = require("sequelize"),
+  connection;
+if (process.env.JAWSDB_URL) {
+  connection = new Sequelize(process.env.JAWSDB_URL);
+} else {
+  connection = new Sequelize("cats_db", "root", "e665", {
+    host: 'localhost',
+    dialect: "mysql",
+    port: "3000"
+  })
+}
+
 
 // Lists out connection options
 var source = {
     localhost: {
-        host: 'localhost',
-        user: 'root',
-        password: "",
-        database: "cat_db"
+        host: 'jw0ch9vofhcajqg7.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+        user: 'i56lsza5p1eh0yxi',
+        password: "zwc7f1qkf29w0xdn",
+        database: "r1kt0y6mc7oyncc9"
     }
 }
 
