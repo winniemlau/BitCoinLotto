@@ -8,6 +8,11 @@ var bcrypt = require('bcryptjs');
 var Cat = require('../models/models.js')[0];
 var User = require('../models/models.js')[1];
 
+// get username and balance
+router.get('/userbalance', function(req,res) {
+	
+})
+
 //this is the users_controller.js file
 router.get('/users/new', function(req,res) {
 	res.render('users/new');
