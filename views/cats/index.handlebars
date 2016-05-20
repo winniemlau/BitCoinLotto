@@ -1,7 +1,7 @@
 <h1>BitCoin Lotto!</h1>
 
 {{#if username}}
-  Welcome {{username}}! Make some cats.
+  Welcome {{username}}! Let's play a game.
 {{/if}}
 
 {{#unless logged_in}}
@@ -9,9 +9,72 @@
 {{/unless}}
 
 {{#if logged_in}}
-  <h2>Add a Cat</h2>
+  
+  <!-- bet window -->
+  <div class="parallax-container">
+    <div class="parallax"><img src="images/parallax1.jpg"></div>
+  </div>
 
-  <form class="create-update-form" action="cats/create" method="POST">
+  <div class="section white">
+    <div class="row container">
+      <h2 class="header">The Spinny Game</h2>
+      <p class="grey-text text-darken-3 lighten-3">Place your bet below!</p>
+    </div>
+
+    <div class="row container">
+      <h1>Place a </h1>
+      <div class="input-field col s6">
+          <input placeholder="$" id="bet_amount" type="text" class="validate">
+          <label for="bet_amount">How much to bet?</label>
+      </div>
+      <h1>bet on </h1>
+      <div class="input-field col s12">
+        <select>
+          <optgroup label="Odds: 1to2 Payout: 1to1">
+            <option value="1">Red</option>
+          </optgroup>
+          <optgroup label="Odds: 7to24 Payout: 2to1">
+            <option value="2">Blue</option>
+          </optgroup>
+          <optgroup label="Odds: 3to24 Payout: 5to1">
+            <option value="3">Yellow</option>
+          </optgroup>
+          <optgroup label="Odds: 1to24 Payout: 20to1">
+            <option value="4">Green</option>
+          </optgroup>
+          <optgroup label="Odds: 1to24 Payout 40to1">
+            <option value="5">Orange</option>
+          </optgroup>
+        </select>
+        <label>Amount to bet</label>
+      </div>
+      <a class="waves-effect waves-light btn">button</a>
+     
+       <!-- Modal Trigger -->
+      <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Submit</a>
+
+      <!-- Modal Structure -->
+      <div id="modal2" class="modal">
+        <div class="modal-content">
+          <h4>Results</h4>
+          <p>Your New Balance Is</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+    
+
+  </div>
+  <div class="parallax-container">
+    <div class="parallax"><img src="images/parallax2.jpg"></div>
+  </div>
+
+  <!-- <form class="create-update-form" action="cats/create" method="POST">
 
     <div class="form-group">
       <label for="ca">Cat Name:</label>
@@ -25,7 +88,8 @@
     </div>
 
     <button type="submit">Add Cat</button>
-  </form>
+  </form> -->
+
 {{/if}}
 
 
