@@ -1,11 +1,10 @@
-<h1>BitCoin Lotto!</h1>
 
 {{#if username}}
   Welcome {{username}}! Make some cats.
 {{/if}}
 
 {{#unless logged_in}}
-  <p> Sign up to play Lotto!! </p>
+  <p> Sign up to play Lotto! </p>
 {{/unless}}
 
 {{#if logged_in}}
@@ -28,10 +27,6 @@
   </form>
 {{/if}}
 
-
-
-<h2>Cats that are not sleepy!</h2>
-
 <ul>
   {{#each cats}}
     {{#unless this.sleepy}}
@@ -48,8 +43,6 @@
     {{/unless}}
   {{/each}}
 </ul>
-
-<h2>Cats that are sleepy!</h2>
 
 <ul>
   {{#each cats}}
