@@ -51,3 +51,7 @@ button[type=submit] {
 label {
   font-size: 14pt;
 }
+
+li {
+  color: white;
+}
