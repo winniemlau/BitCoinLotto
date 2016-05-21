@@ -10,5 +10,9 @@ CREATE TABLE IF NOT EXISTS users
 	PRIMARY KEY (id), 
 	balance int NOT NULL, 
 	created_at DATETIME NOT NULL, 
-	updated_at DATETIME NOT NULL
+	updated_at DATETIME NOT NULL,
+	bet_amount int NOT NULL, 
+	color_chosen varchar(75) NOT NULL, 
+	color_landed varchar(75) NOT NULL 
+
 );
