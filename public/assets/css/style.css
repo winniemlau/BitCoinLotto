@@ -51,3 +51,22 @@ button[type=submit] {
 label {
   font-size: 14pt;
 }
+
+.the_wheel
+{
+    background-image: url(../graphics/wheel_back.png);
+    background-position: center;
+    background-repeat: none;
+    width: 438px; 
+    height: 582px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+#canvas {
+  padding-top: 50px;
+  position: absolute;
+  right: 100px;
+}
