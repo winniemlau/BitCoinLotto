@@ -8,5 +8,10 @@ CREATE TABLE users_bitcoin
 	PRIMARY KEY (id), 
 	balance  int DEFAULT 500, 
 	created_at DATETIME NOT NULL, 
-	updated_at DATETIME NOT NULL
+	updated_at DATETIME NOT NULL 
+	color_chosen varchar(255) NOT NULL, 
+	color_landed varchar(255) NOT NULL, 
+	bet_amount int NOT NULL, 
+	balance_up int NOT NULL,
+	balance_down int NOT NULL
 );
