@@ -63,4 +63,4 @@ var orm = {
   }
 };
 
-module.exports = ormd;
+module.exports = models;
