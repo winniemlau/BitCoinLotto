@@ -27,7 +27,7 @@
   				<a href="/users/sign-out">Sign Out</a>
   			{{/if}} -->
 
-        <a class="waves-effect waves-light orange accent-3 btn modal-trigger" href="#modal1">Login</a>
+        <a class="waves-effect waves-light orange accent-3 btn modal-trigger" i href="#modal1">Login</a>
         <!-- Modal Structure -->
         <div id="modal1" class="modal">
           <div class="modal-content">
@@ -45,7 +45,7 @@
           <label for="pass"><strong>Password:</strong></label>
           <input type="password" id="pass" name="password">
         </div>
-        <button type="submit" href="#!" id="submitbttn" class="modal-action modal-close waves-effect waves-green orange accent-3 btn-flat ">Login</button>
+        <button type="submit" href="#!" id="login" class="modal-action modal-close waves-effect waves-green orange accent-3 btn-flat ">Login</button>
         <button type="submit" href="#!" id="addwallet" class="modal-action modal-close waves-effect waves-green orange accent-3 btn-flat ">Add BitCoin Wallet</button>
       </form>
     </div>
@@ -77,7 +77,7 @@
   </div>
   <button type="submit" href="#!" id="addwallet" class="modal-action modal-close waves-effect waves-green orange accent-3 btn-flat ">Add BitCoin Wallet</button>
   <br>
-  <button type="submit" href="#!" id="submitbttn" class="modal-action modal-close waves-effect waves-green orange accent-3 btn-flat ">Sign Up</button>
+  <button type="submit" href="#!" id="submitbttn" class="modal-action modal-close waves-effect waves-green orange accent-3 btn-flat " id='signUp'>Sign Up</button>
 </form>
 </div>
 </div>
@@ -107,16 +107,12 @@
     <div class="container">
       <br><br>
       <h1 class="header center orange-text">Wheel of Bitcoins</h1>
-      <h4 class="header center orange-text">Spin the wheel and earn bitcoins</h4>
       <div class="row center">
         <h5 class="header col s12 light">
         	{{{ body }}}
         </h5>
       </div>
-      <div class="row center">
-        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Play Now</a>
-      </div>
-      <br><br>
+
 
     </div>
   </div>
@@ -160,6 +156,7 @@
 
     </div>
     <br><br>
+
 
     <div class="section">
 
@@ -206,6 +203,9 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="assets/js/materialize.js"></script>
   <script src="assets/js/init.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+  <script src="assets/js/Winwheel.js"></script>
+
   <script>
   $(document).ready(function() {
     $('.modal-trigger').leanModal();

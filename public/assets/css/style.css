@@ -52,6 +52,26 @@ label {
   font-size: 14pt;
 }
 
-li {
+/*li {
   color: white;
+}*/
+
+i.icon-red{
+  color: red;
+}
+
+i.icon-blue {
+  color: blue;
+}
+
+i.icon-yellow {
+  color: yellow;
+}
+
+i.icon-green {
+  color: green;
+}
+
+i.icon-orange {
+  color: orange;
 }
