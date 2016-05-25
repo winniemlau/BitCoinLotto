@@ -52,21 +52,26 @@ label {
   font-size: 14pt;
 }
 
-.the_wheel
-{
-    background-image: url(../graphics/wheel_back.png);
-    background-position: center;
-    background-repeat: none;
-    width: 438px; 
-    height: 582px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    
+/*li {
+  color: white;
+}*/
+
+i.icon-red{
+  color: red;
 }
 
-#canvas {
-  padding-top: 50px;
-  position: absolute;
-  right: 100px;
+i.icon-blue {
+  color: blue;
+}
+
+i.icon-yellow {
+  color: yellow;
+}
+
+i.icon-green {
+  color: green;
+}
+
+i.icon-orange {
+  color: orange;
 }
