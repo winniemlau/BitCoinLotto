@@ -3,52 +3,74 @@
 {{/if}}
 
 {{#unless logged_in}}
-  <p> Spin the wheel and earn bitcoins </p>
+  <p> Spin the wheel and earn bitcoins! </p>
 {{/unless}}
 
 
   <!-- bet window -->
-<div class="container">
+<div class="container" id="bidbox">
   <div class="row">
     <div class="col m10 offset-m1 s12">
       <div class="row">
-        <form class="col s12">
-          <h3>Current Balance:</h3>
-          <div class="input-field col m12 s12 center-align">
-            <input placeholder="$" id="bet_amount" type="text" class="validate">
+
+          <div class="boxed" id="balance">
+              <p><strong>Price of 1 Bitcoin</strong></p>
+              <div class="boxedtwo">$5</div>
           </div>
+
+          <div class="boxed" id="exchange">
+              <p><strong>Current Balance</strong></p>
+              <div class="boxedtwo">$500</div>
+          </div>
+
+
+
+
+
+        <form class="col s12">
+          <div class="input-field col m12 s12 center-align">
+            <p style="text-align:center">Bet amount:</p> <input placeholder="$" id="bet_amount" type="text" class="validate">
+          </div>
+
+          <p style="text-align:center">Pick a slice to bet on</p>
+
+          <div class="b" style="background-color:red">
+            <input name="group1" type="radio" id="radio1" />
+            <label for="radio1"><strong>Red</strong><br> Odds: 1to2 <br> Payout: 1to1</label>
+          </div>
+
+          <div class="b" style="background-color:blue">
+            <input name="group1" type="radio" id="radio2" />
+            <label for="radio2"><strong>Blue</strong><br> Odds: 7to24 <br> Payout: 2to1</label>
+          </div>
+
+          <div class="b" style="background-color:#c1b102" >
+            <input name="group1" type="radio" id="radio3" />
+            <label for="radio3"><strong>Yellow</strong><br> Odds: 1to24 <br> Payout: 20to1</label>
+          </div>
+
+          <div class="b" style="background-color:green">
+          <input name="group1" type="radio" id="radio4" />
+          <label for="radio4"><strong>Green</strong><br> Odds: 1to24 <br> Payout: 20to1</label>
+          </div>
+
+          <div class="b" style="background-color:orange">
+          <input name="group1" type="radio" id="radio5" />
+          <label for="radio5"><strong>Orange</strong><br> Odds: 1to24 <br> Payout 40to1</label>
+          </div>
+
+
 
           <div class="row center-align">
-            <p>Pick a slice to bet on.</p>
-            <div class="input-field col m3 s6 l6 center-align">
-              <input name="group1" type="radio" id="google" />
-              <label for="google">Red<i class="material-icons icon-red">stop</i> <br> Odds: 1to2 <br> Payout: 1to1</label>
-            </div>
-            <div class="input-field col m3 s6 l6 center-align">
-              <input name="group1" type="radio" id="customer" />
-              <label for="customer">Blue<i class="material-icons icon-blue">stop</i> <br> Odds: 7to24 <br> Payout: 2to1</label>
-            </div>
-            <div class="input-field col m3 s6 l4 center-align">
-              <input name="group1" type="radio" id="store" />
-              <label for="store">Yellow<i class="material-icons icon-yellow">stop</i> <br> Odds: 3to24 <br> Payout: 5to1</label>
-            </div>
-            <div class="input-field col m3 s6 l4 center-align">
-              <input name="group1" type="radio" id="other" />
-              <label for="other">Green<i class="material-icons icon-green">stop</i> <br> Odds: 1to24 <br> Payout: 20to1</label>
-            </div>
-            <div class="input-field col m3 s6 l4 center-align">
-              <input name="group1" type="radio" id="other" />
-              <label for="other">Orange<i class="material-icons icon-orange">stop</i> <br> Odds: 1to24 <br> Payout 40to1</label>
-            </div>
-          </div>
-
-          <br>
-          <br>
 
           <div class="row">
             <div class="col m12">
               <!-- Modal Trigger -->
-              <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Place Bid</a>
+              <br>
+
+
+              <a class="waves-effect waves-light cyan darken-4 btn modal-trigger" id="bidbtn" href="#modal2">Place Bid</a>
+
 
               <!-- Modal Structure Insert wheel animation here-->
               <div id="modal2" class="modal">
@@ -65,18 +87,21 @@
           </div>
 
         </form>
-        <ul class="collection with-header">
-          <li class="collection-header"><h4>Past Bets:</h4></li>
-          <li class="collection-item">Alvin</li>
-          <li class="collection-item">Alvin</li>
-          <li class="collection-item">Alvin</li>
-          <li class="collection-item">Alvin</li>
-        </ul>
+
       </div>
     </div>
   </div>
 </div>
 
+<!-- <div>
+  <ul class="collection with-header">
+    <li class="collection-header"><h4>Past Bets:</h4></li>
+    <li class="collection-item">Alvin</li>
+    <li class="collection-item">Alvin</li>
+    <li class="collection-item">Alvin</li>
+    <li class="collection-item">Alvin</li>
+  </ul>
+</div> -->
 
 
   {{#if balance}}
