@@ -1,84 +1,69 @@
+<h1>BitCoin Lotto!</h1>
+
 {{#if username}}
-  Welcome {{username}}! Let's play a game.
+  Welcome {{username}}! Make some cats.
 {{/if}}
 
 {{#unless logged_in}}
-  <p> Spin the wheel and earn bitcoins </p>
+  <p> Sign up to play Lotto!! </p>
 {{/unless}}
 
+{{#if logged_in}}
+  <h2>Add a Cat</h2>
 
-  <!-- bet window -->
-<div class="container">
-  <div class="row">
-    <div class="col m10 offset-m1 s12">
-      <div class="row">
-        <form class="col s12">
-          <h3>Current Balance:</h3>
-          <div class="input-field col m12 s12 center-align">
-            <input placeholder="$" id="bet_amount" type="text" class="validate">
-          </div>
+  <form class="create-update-form" action="cats/create" method="POST">
 
-          <div class="row center-align">
-            <p>Pick a slice to bet on.</p>
-            <div class="input-field col m3 s6 l6 center-align">
-              <input name="group1" type="radio" id="google" />
-              <label for="google">Red<i class="material-icons icon-red">stop</i> <br> Odds: 1to2 <br> Payout: 1to1</label>
-            </div>
-            <div class="input-field col m3 s6 l6 center-align">
-              <input name="group1" type="radio" id="customer" />
-              <label for="customer">Blue<i class="material-icons icon-blue">stop</i> <br> Odds: 7to24 <br> Payout: 2to1</label>
-            </div>
-            <div class="input-field col m3 s6 l4 center-align">
-              <input name="group1" type="radio" id="store" />
-              <label for="store">Yellow<i class="material-icons icon-yellow">stop</i> <br> Odds: 3to24 <br> Payout: 5to1</label>
-            </div>
-            <div class="input-field col m3 s6 l4 center-align">
-              <input name="group1" type="radio" id="other" />
-              <label for="other">Green<i class="material-icons icon-green">stop</i> <br> Odds: 1to24 <br> Payout: 20to1</label>
-            </div>
-            <div class="input-field col m3 s6 l4 center-align">
-              <input name="group1" type="radio" id="other" />
-              <label for="other">Orange<i class="material-icons icon-orange">stop</i> <br> Odds: 1to24 <br> Payout 40to1</label>
-            </div>
-          </div>
-
-          <br>
-          <br>
-
-          <div class="row">
-            <div class="col m12">
-              <!-- Modal Trigger -->
-              <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Place Bid</a>
-
-              <!-- Modal Structure Insert wheel animation here-->
-              <div id="modal2" class="modal">
-                <div class="modal-content">
-                  <h4>Modal Header</h4>
-                  <p>A bunch of text</p>
-                </div>
-                <div class="modal-footer">
-                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-        </form>
-        <ul class="collection with-header">
-          <li class="collection-header"><h4>Past Bets:</h4></li>
-          <li class="collection-item">Alvin</li>
-          <li class="collection-item">Alvin</li>
-          <li class="collection-item">Alvin</li>
-          <li class="collection-item">Alvin</li>
-        </ul>
-      </div>
+    <div class="form-group">
+      <label for="ca">Cat Name:</label>
+      <input type="text" id="ca" name="name">
     </div>
-  </div>
-</div>
+
+    <div class="form-group">
+      <label for="slee">Sleepy?</label><br>
+      <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
+      <input type="radio" name="sleepy" value="0"> Awake
+    </div>
+
+    <button type="submit">Add Cat</button>
+  </form>
+{{/if}}
 
 
 
-  {{#if balance}}
-      Your balance is {{balance}} !
-  {{/if}}
+<h2>Cats that are not sleepy!</h2>
+
+<ul>
+  {{#each cats}}
+    {{#unless this.sleepy}}
+      <li>
+        {{this.name}}
+
+        <form action="cats/update/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="sleepy" value="true">
+          <button type="submit">SLEEP TIME!</button>
+        </form>
+
+        {{> cats/delete-cat}}
+      </li>
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>Cats that are sleepy!</h2>
+
+<ul>
+  {{#each cats}}
+    {{#if this.sleepy}}
+      <li>
+        {{this.name}}
+
+        <form action="cats/update/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="sleepy" value="false">
+          <button type="submit">WAKE UP!</button>
+        </form>
+
+        {{> cats/delete-cat}}
+      </li>
+    {{/if}}
+  {{/each}}
+</ul>

@@ -1,6 +1,6 @@
 <!-- this is the sign_in.handlebars file inside the users folder of the views folder
 views/users/sign_in.handlebars -->
-<form class="create-update-form" action="/users/login" method="POST">
+<!-- <form class="create-update-form" action="/users/login" method="POST">
 
   <div class="form-group">
     <label for="em">Email:</label>
@@ -13,4 +13,26 @@ views/users/sign_in.handlebars -->
   </div>
 
   <button type="submit">Sign In</button>
-</form>
+</form> -->
+
+<div class="row">
+    <div class="col s12 m4 l2"><p></p></div>
+
+    <form class="create-update-form col s12 m4 l8" action="/users/login" method="POST">
+      <div class="row">
+        <div class="input-field">
+          <input id="em" type="text" class="validate center-align" name="email">
+          <label for="em">e-mail</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field">
+          <input id="pass" type="password" class="validate" name="password">
+          <label for="pass">password</label>
+        </div>
+      </div>
+      <button type="submit" class="waves-effect waves-light orange accent-3 btn">Sign In</button>
+    </form>
+
+    <div class="col s12 m4 l2"><p></p></div>
+</div>

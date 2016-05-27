@@ -1,215 +1,160 @@
+<!--
+Here is the main HTML where handlebars will render to
+ -->
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title> BitCoin Game</title>
+	<head>
 
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="assets/css/style.css" type="text/css" rel="stylesheet" />
-  <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-</head>
-<body>
-  <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img src="http://s32.postimg.org/rkfnbc3d1/bitcoinlogo2.png" width="60px"/></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">How to Play</a></li>
-        <li><a href="#">FAQ</a></li>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
 
-        <!-- {{#unless logged_in}}
-  				<a href="/users/sign-in">Sign In</a>
-  				<a href="/users/new">Sign Up</a>
-  			{{/unless}}
+		<title>Bitcoin Game</title>
 
-        {{#if logged_in}}
-  				<a href="/users/sign-out">Sign Out</a>
-  			{{/if}} -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  		<link href="../assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  		<link href="../assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-        <a class="waves-effect waves-light orange accent-3 btn modal-trigger" i href="#modal1">Login</a>
-        <!-- Modal Structure -->
-        <div id="modal1" class="modal">
-          <div class="modal-content">
+	</head>
+	<body>
+		<nav class="light-blue lighten-1" role="navigation">
+		    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img src="http://s32.postimg.org/rkfnbc3d1/bitcoinlogo2.png" width="60px"/></a>
 
-           <h4>LOGIN INTO YOUR<br>COINBASE ACCOUNT</h4>
+		      <ul class="right hide-on-med-and-down">
+				{{#unless logged_in}}
+					<li><a class="waves-effect waves-light orange accent-3 btn" href="/users/sign-in">Sign In</a></li>
+					<li><a class="waves-effect waves-light orange accent-3 btn" href="/users/new">Sign Up</a></li>
+				{{/unless}}
 
-        <form class="create-update-form" action="/users/login" method="POST">
+				{{#if logged_in}}
+					<li><a href="/cats/game">Play a Game!</a></li>
+					<li><a href="/users/leaderboard">Leader Board</a></li>
+					<li><a href="/users/user-profile">User Profile</a></li>
+					<li><a href="/users/sign-out">Sign Out</a></li>
+				{{/if}}
+		      </ul>
+		      <ul id="nav-mobile" class="side-nav">
+		      	{{#unless logged_in}}
+					<li><a href="/users/sign-in">Sign In</a></li>
+					<li><a href="/users/new">Sign Up</a></li>
+				{{/unless}}
 
-        <div class="form-group">
-          <label for="em"><strong>Email:</strong></label>
-          <input type="text" id="em" name="email">
-        </div>
+				{{#if logged_in}}
+					<li><a href="/cats/game">Play a Game!</a></li>
+					<li><a href="/users/sign-out">Sign Out</a></li>
+					<li><a href="/users/leaderboard">Leader Board</a></li>
+					<li><a href="/users/user-profile">User Profile</a></li>
+				{{/if}}
+		      </ul>
 
-        <div class="form-group">
-          <label for="pass"><strong>Password:</strong></label>
-          <input type="password" id="pass" name="password">
-        </div>
-        <button type="submit" href="#!" id="login" class="modal-action modal-close waves-effect waves-green orange accent-3 btn-flat ">Login</button>
-        <button type="submit" href="#!" id="addwallet" class="modal-action modal-close waves-effect waves-green orange accent-3 btn-flat ">Add BitCoin Wallet</button>
-      </form>
-    </div>
-  </div>
+		      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+		    </div>
+		</nav>
 
-  <!-- Modal Trigger for User Sign Up   -->
-  <a class="waves-effect waves-light orange accent-3 btn modal-trigger" href="#modal2">Sign Up</a>
-  <!-- Modal Structure for User Sign up -->
-  <div id="modal2" class="modal">
-    <div class="modal-content">
+		<br><br>
 
-     <h4>SIGN UP FOR AN ACCOUNT</h4>
+		{{{ body }}}
 
-  <form class="create-update-form" action="/users/create" method="POST">
+		<div class="section no-pad-bot" id="index-banner">
+		    <div class="container">
+				<br><br>
+				<h1 class="header center orange-text">Starter Template</h1>
+				<div class="row center">
+					<h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+				</div>
+				<div class="row center">
+					<a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
+				</div>
+				<br><br>
 
-    <div class="form-group">
-      <label for="uname">Username:</label>
-      <input type="text" id="uname" name="username">
-    </div>
-
-  <div class="form-group">
-    <label for="em"><strong>Email:</strong></label>
-    <input type="text" id="em" name="email">
-  </div>
-
-  <div class="form-group">
-    <label for="pass"><strong>Password:</strong></label>
-    <input type="password" id="pass" name="password">
-  </div>
-  <button type="submit" href="#!" id="addwallet" class="modal-action modal-close waves-effect waves-green orange accent-3 btn-flat ">Add BitCoin Wallet</button>
-  <br>
-  <button type="submit" href="#!" id="submitbttn" class="modal-action modal-close waves-effect waves-green orange accent-3 btn-flat " id='signUp'>Sign Up</button>
-</form>
-</div>
-</div>
-
-      </ul>
+		    </div>
+		</div>
 
 
+		 <div class="container">
+		    <div class="section">
+
+		      <!--   Icon Section   -->
+		      <div class="row">
+		        <div class="col s12 m4">
+		          <div class="icon-block">
+		            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
+		            <h5 class="center">Speeds up development</h5>
+
+		            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+		          </div>
+		        </div>
+
+		        <div class="col s12 m4">
+		          <div class="icon-block">
+		            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+		            <h5 class="center">User Experience Focused</h5>
+
+		            <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+		          </div>
+		        </div>
+
+		        <div class="col s12 m4">
+		          <div class="icon-block">
+		            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
+		            <h5 class="center">Easy to work with</h5>
+
+		            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+		          </div>
+		        </div>
+		      </div>
+
+		    </div>
+		    <br><br>
+
+		    <div class="section">
+
+		    </div>
+		  </div>
+
+		  <footer class="page-footer orange">
+		    <div class="container">
+		      <div class="row">
+		        <div class="col l6 s12">
+		          <h5 class="white-text">Company Bio</h5>
+		          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
 
 
-      <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">Navbar Link</a></li>
-        <li><a href="#">FAQ</a></li>
-
-        {{#unless logged_in}}
-  				<a href="/users/sign-in">Sign In</a>
-  				<a href="/users/new">Sign Up</a>
-  			{{/unless}}
-
-        {{#if logged_in}}
-  				<a href="/users/sign-out">Sign Out</a>
-  			{{/if}}
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
-  <div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-      <br><br>
-      <h1 class="header center orange-text">Wheel of Bitcoins</h1>
-      <div class="row center">
-        <h5 class="header col s12 light">
-        	{{{ body }}}
-        </h5>
-      </div>
-
-
-    </div>
-  </div>
+		        </div>
+		        <div class="col l3 s12">
+		          <h5 class="white-text">Settings</h5>
+		          <ul>
+		            <li><a class="white-text" href="#!">Link 1</a></li>
+		            <li><a class="white-text" href="#!">Link 2</a></li>
+		            <li><a class="white-text" href="#!">Link 3</a></li>
+		            <li><a class="white-text" href="#!">Link 4</a></li>
+		          </ul>
+		        </div>
+		        <div class="col l3 s12">
+		          <h5 class="white-text">Connect</h5>
+		          <ul>
+		            <li><a class="white-text" href="#!">Link 1</a></li>
+		            <li><a class="white-text" href="#!">Link 2</a></li>
+		            <li><a class="white-text" href="#!">Link 3</a></li>
+		            <li><a class="white-text" href="#!">Link 4</a></li>
+		          </ul>
+		        </div>
+		      </div>
+		    </div>
+		    <div class="footer-copyright">
+		      <div class="container">
+		      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+		      </div>
+		    </div>
+		  </footer>
 
 
+  		<!--  Scripts-->
+		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script src="../assets/js/materialize.js"></script>
+		<script src="../assets/js/init.js"></script>
 
 
-
-  <div class="container">
-    <div class="section">
-
-      <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">vpn_key</i></h2>
-            <h5 class="center">Sign In</h5>
-
-            <p class="light">Log into your Coinbase account to start playing! If you do not have an account, sign up for an account and add your deposit address</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">play_circle_outline</i></h2>
-            <h5 class="center">Demo Game</h5>
-
-            <p class="light">Try our demo game to get adjusted to the rules then play for pay. To begin game, click on the above "Play Now" button.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">payment</i></h2>
-            <h5 class="center">Spin the wheel</h5>
-
-            <p class="light">Enter your bet amount and select a slice. Spin the wheel and good luck! Funds will be directly deposited into your bitcoin wallet if you win.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <br><br>
-
-
-    <div class="section">
-
-    </div>
-  </div>
-
-  <footer class="page-footer orange">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">About Us</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
-
-
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Team Members</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Bruno</a></li>
-            <li><a class="white-text" href="#!">Dennis</a></li>
-            <li><a class="white-text" href="#!">Rey</a></li>
-            <li><a class="white-text" href="#!">Winnie</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <ul>
-            <li><a class="white-text"><img src="http://insidebitcoins.com/wp-content/uploads/rss-feed-images/Bitcoin_accepted_here_printable.png" width="150px" /></a></li>
-            <br>
-            <li>&#169; [game name] 2016</li>
-            <li><a class="white-text" href="https://github.com/winniemlau/BitCoinLotto">Github Repo</a></li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-      </div>
-    </div>
-  </footer>
-
-
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="assets/js/materialize.js"></script>
-  <script src="assets/js/init.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-  <script src="assets/js/Winwheel.js"></script>
-
-  <script>
-  $(document).ready(function() {
-    $('.modal-trigger').leanModal();
-  });
-  </script>
-  </body>
-</html>
+		
+	</body>
+</HTML>

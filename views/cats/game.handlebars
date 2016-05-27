@@ -1,0 +1,347 @@
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col m10 offset-m1 s12">
+      <div class="row">
+        <form class="col s12">
+          <h3>Current Balance:</h3>
+          <div class="input-field col m12 s12 center-align">
+            <input placeholder="$" id="bet_amount" type="text" class="validate">
+          </div>
+
+          <div class="row center-align">
+            <p>Pick a slice to bet on.</p>
+            <div class="input-field col m3 s6 l6 center-align">
+              <input name="group1" type="radio" id="google" />
+              <label for="google">Red<i class="material-icons icon-red">stop</i> <br> Odds: 1to2 <br> Payout: 1to1</label>
+            </div>
+            <div class="input-field col m3 s6 l6 center-align">
+              <input name="group1" type="radio" id="customer" />
+              <label for="customer">Blue<i class="material-icons icon-blue">stop</i> <br> Odds: 7to24 <br> Payout: 2to1</label>
+            </div>
+            <div class="input-field col m3 s6 l4 center-align">
+              <input name="group1" type="radio" id="store" />
+              <label for="store">Yellow<i class="material-icons icon-yellow">stop</i> <br> Odds: 3to24 <br> Payout: 5to1</label>
+            </div>
+            <div class="input-field col m3 s6 l4 center-align">
+              <input name="group1" type="radio" id="other" />
+              <label for="other">Green<i class="material-icons icon-green">stop</i> <br> Odds: 1to24 <br> Payout: 20to1</label>
+            </div>
+            <div class="input-field col m3 s6 l4 center-align">
+              <input name="group1" type="radio" id="other" />
+              <label for="other">Orange<i class="material-icons icon-orange">stop</i> <br> Odds: 1to24 <br> Payout 40to1</label>
+            </div>
+          </div>
+
+          <br>
+          <br>
+
+          <div class="row">
+            <div class="col m12"> -->
+              <!-- Modal Trigger -->
+             <!--  <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Place Bid</a>
+ -->
+              <!-- Modal Structure Insert wheel animation here-->
+              <!-- <div id="modal2" class="modal">
+                <div class="modal-content">
+                  <h4>Modal Header</h4>
+                  <p>A bunch of text</p>
+                </div>
+                <div class="modal-footer">
+                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+ <!-- bet window -->
+<div class="container">
+  <div class="row">
+    <div class="col m10 offset-m1 s12">
+      <div class="row">
+        <form class="col s12">
+
+          <div class="the_wheel">
+            <canvas id="canvas" width="434" height="434"></canvas>
+          </div>
+
+
+          <h3>Current Balance:</h3>
+          <div class="input-field col m12 s12 center-align">
+            <input placeholder="$" id="bet_amount" type="text" class="validate">
+          </div>
+
+          <div class="row center-align">
+            <p>Pick a slice to bet on.</p>
+            <div class="input-field col m3 s6 l6 center-align">
+              <input name="group1" type="radio" id="betRed" value="red" />
+              <label for="betRed">Red <br> Odds: 1to2 <br> Payout: 1to1</label>
+            </div>
+            <div class="input-field col m3 s6 l6 center-align">
+              <input name="group1" type="radio" id="betBlue" value="blue" />
+              <label for="betBlue">Blue <br> Odds: 7to24 <br> Payout: 2to1</label>
+            </div>
+            <div class="input-field col m3 s6 l4 center-align">
+              <input name="group1" type="radio" id="betYellow" value="yellow"/>
+              <label for="betYellow">Yellow <br> Odds: 3to24 <br> Payout: 5to1</label>
+            </div>
+            <div class="input-field col m3 s6 l4 center-align">
+              <input name="group1" type="radio" id="betGreen" value="green"/>
+              <label for="betGreen">Green <br> Odds: 1to24 <br> Payout: 20to1</label>
+            </div>
+            <div class="input-field col m3 s6 l4 center-align">
+              <input name="group1" type="radio" id="betOrange" value="orange"/>
+              <label for="betOrange">Orange <br> Odds: 1to24 <br> Payout 40to1</label>
+            </div>
+
+          </div>
+          <button type="submit" class="waves-effect waves-light orange accent-3 btn" id="spin" onclick="startSpin()">Spin the Wheel!</button>
+          <br>
+          <br>
+          
+
+        </form>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+   <script src="../assets/js/Winwheel.js"></script>
+   <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+  
+  <script>
+        
+      
+
+            // Create new wheel object specifying the parameters at creation time.
+            var theWheel = new Winwheel({
+                'outerRadius'     : 212,        // Set outer radius so wheel fits inside the background.
+                'innerRadius'     : 0,         // Make wheel hollow so segments don't go all way to center.
+                'textFontSize'    : 24,         // Set default font size for the segments.
+                'textOrientation' : 'vertical', // Make text vertial so goes down from the outside of wheel.
+                'textAlignment'   : 'outer',    // Align text to outside of wheel.
+                'numSegments'     : 24,         // Specify number of segments.
+                'segments'        :             // Define segments including colour and text.
+                [                               // font size and test colour overridden on backrupt segments.
+                   {'fillStyle' : '#ee1c24', 'text' : ''},
+                   {'fillStyle' : '#00aef0', 'text' : ''},
+                   {'fillStyle' : '#ee1c24', 'text' : ''},
+                   {'fillStyle' : '#00aef0', 'text' : ''},
+                   {'fillStyle' : '#ee1c24', 'text' : ''},
+                   {'fillStyle' : '#fff200', 'text' : ''},
+                   {'fillStyle' : '#ee1c24', 'text' : ''},
+                   {'fillStyle' : '#00aef0', 'text' : ''},
+                   {'fillStyle' : '#ee1c24', 'text' : ''},
+                   {'fillStyle' : '#00aef0', 'text' : ''},
+                   {'fillStyle' : '#ee1c24', 'text' : ''},
+                   {'fillStyle' : '#00aef0', 'text' : ''},
+                   {'fillStyle' : '#fff200', 'text' : ''},
+                   {'fillStyle' : '#ee1c24', 'text' : ''},
+                   {'fillStyle' : '#ee1c24', 'text' : ''},
+                   {'fillStyle' : '#00aef0', 'text' : ''},
+                   {'fillStyle' : '#ee1c24', 'text' : ''},
+                   {'fillStyle' : '#00aef0', 'text' : ''},
+                   {'fillStyle' : '#ee1c24', 'text' : ''},
+                   {'fillStyle' : '#3cb878', 'text' : ''},                   
+                   {'fillStyle' : '#ee1c24', 'text' : ''},
+                   {'fillStyle' : '#fff200', 'text' : ''},
+                   {'fillStyle' : '#ee1c24', 'text' : ''},
+                   {'fillStyle' : '#f26522', 'text' : ''} 
+                   
+                ],
+                'animation' :           // Specify the animation to use.
+                {
+                    'type'     : 'spinToStop',
+                    'duration' : 8,     // Duration in seconds.
+                    'spins'    : 3,     // Default number of complete spins.
+                    'callbackFinished' : 'alertPrize()'
+                }
+            });
+            
+            // Vars used by the code in this page to do power controls.
+            var wheelPower    = 0;
+            var wheelSpinning = false;
+            
+            // -------------------------------------------------------
+            // Function to handle the onClick on the power buttons.
+            // -------------------------------------------------------
+            function powerSelected(powerLevel)
+            {
+                // Ensure that power can't be changed while wheel is spinning.
+                if (wheelSpinning == false)
+                {
+                    // Reset all to grey incase this is not the first time the user has selected the power.
+                    document.getElementById('pw1').className = "";
+                    document.getElementById('pw2').className = "";
+                    document.getElementById('pw3').className = "";
+                    
+                    // Now light up all cells below-and-including the one selected by changing the class.
+                    if (powerLevel >= 1)
+                    {
+                        document.getElementById('pw1').className = "pw1";
+                    }
+                        
+                    if (powerLevel >= 2)
+                    {
+                        document.getElementById('pw2').className = "pw2";
+                    }
+                        
+                    if (powerLevel >= 3)
+                    {
+                        document.getElementById('pw3').className = "pw3";
+                    }
+                    
+                    // Set wheelPower var used when spin button is clicked.
+                    wheelPower = powerLevel;
+                    
+                    // Light up the spin button by changing it's source image and adding a clickable class to it.
+                    document.getElementById('spin_button').src = "spin_on.png";
+                    document.getElementById('spin_button').className = "clickable";
+                }
+            }
+            
+            // -------------------------------------------------------
+            // Click handler for spin button.
+            // -------------------------------------------------------
+            function startSpin()
+            {
+                // set to medium
+                wheelPower = 1
+                // Ensure that spinning can't be clicked again while already running.
+                if (wheelSpinning == false)
+                {
+                    // Based on the power level selected adjust the number of spins for the wheel, the more times is has
+                    // to rotate with the duration of the animation the quicker the wheel spins.
+                    if (wheelPower == 1)
+                    {
+                        theWheel.animation.spins = 3;
+                    }
+                    else if (wheelPower == 2)
+                    {
+                        theWheel.animation.spins = 6;
+                    }
+                    else if (wheelPower == 3)
+                    {
+                        theWheel.animation.spins = 9;
+                    }
+                    
+                    // Disable the spin button so can't click again while wheel is spinning.
+                    // document.getElementById('spin_button').src       = "spin_off.png";
+                    // document.getElementById('spin_button').className = "";
+                    
+                    // Begin the spin animation by calling startAnimation on the wheel object.
+                    theWheel.startAnimation();
+                    
+                    // Set to true so that power can't be changed and spin button re-enabled during
+                    // the current animation. The user will have to reset before spinning again.
+                    wheelSpinning = true;
+                }
+            }
+            
+            // -------------------------------------------------------
+            // Function for reset button.
+            // -------------------------------------------------------
+            function resetWheel()
+            {
+                theWheel.stopAnimation(false);  // Stop the animation, false as param so does not call callback function.
+                theWheel.rotationAngle = 0;     // Re-set the wheel angle to 0 degrees.
+                theWheel.draw();                // Call draw to render changes to the wheel.
+                
+                // document.getElementById('pw1').className = "";  // Remove all colours from the power level indicators.
+                // document.getElementById('pw2').className = "";
+                // document.getElementById('pw3').className = "";
+                
+                wheelSpinning = false;          // Reset to false to power buttons and spin can be clicked again.
+            }
+            
+            // -------------------------------------------------------
+            // Called when the spin animation has finished by the callback feature of the wheel because I specified callback in the parameters.
+            // -------------------------------------------------------
+            function alertPrize()
+            {
+                // Get the segment indicated by the pointer on the wheel background which is at 0 degrees.
+                var winningSegment = theWheel.getIndicatedSegment();
+                
+                var segmentColor;
+                
+                switch (parseInt(winningSegment)) {
+                    case 1: 
+                    case 3: 
+                    case 5: 
+                    case 7: 
+                    case 9: 
+                    case 11: 
+                    case 14: 
+                    case 15: 
+                    case 17: 
+                    case 19: 
+                    case 21: 
+                    case 23: 
+                        segmentColor = 'red';break;
+                    case 2: 
+                    case 4: 
+                    case 8: 
+                    case 10:
+                    case 12:
+                    case 16: 
+                    case 18:   
+                        segmentColor = 'blue';break;
+                    case 6: 
+                    case 13: 
+                    case 22: 
+                        segmentColor = 'yellow';break;
+                    case 20: 
+                        segmentColor = 'green';break;
+                    case 24: 
+                        segmentColor = 'orange';break;
+                }
+                console.log(segmentColor);
+                // Just alert to the user what happened.
+                // In a real project probably want to do something more interesting than this with the result.
+                
+                    // alert("Winning bet is " + segmentColor);
+
+                    var choices = document.getElementsByName('group1')
+                    debugger;
+                    for (var i = 0; i < choices.length; i++) {
+                       if (choices[i].checked) {
+                        console.log('bet color = ' + choices[i].value)
+                        var betval = choices[i].value
+                        break;
+                       }
+                    }
+                    var betamt = document.getElementById('bet_amount').value;
+                    console.log(betamt)
+                    var prizeAmt = 0;
+                    if (betval === segmentColor) {
+                      console.log('betval = ' + betval)
+                      console.log('segmentColor = ' + segmentColor)
+                       switch (segmentColor) {
+                          case 'red': prizeAmt = betamt; break;
+                          case 'blue': prizeAmt = betamt * 2; break;
+                          case 'yellow': prizeAmt = betamt * 5; break;
+                          case 'blue': prizeAmt = betamt * 20; break;   
+                          case 'orange': prizeAmt = betamt * 40; break;
+                       }
+                       alert('You won $' + prizeAmt);    
+                    } else
+                      alert('You lose!');     
+                     
+            }
+
+
+        $('#spin').on('click', function(){
+            startSpin();
+        });
+    
+        </script>
