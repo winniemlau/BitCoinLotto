@@ -17,8 +17,8 @@ Here is the main HTML where handlebars will render to
 
 	</head>
 	<body>
-		<nav class="light-blue lighten-1" role="navigation">
-		    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img src="http://s32.postimg.org/rkfnbc3d1/bitcoinlogo2.png" width="60px"/></a>
+		<nav class="blue-grey darken-3" role="navigation">
+    		<div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img src="http://s32.postimg.org/rkfnbc3d1/bitcoinlogo2.png" width="60px"/></a>
 
 		      <ul class="right hide-on-med-and-down">
 				{{#unless logged_in}}
@@ -27,23 +27,23 @@ Here is the main HTML where handlebars will render to
 				{{/unless}}
 
 				{{#if logged_in}}
-					<li><a href="/cats/game">Play a Game!</a></li>
-					<li><a href="/users/leaderboard">Leader Board</a></li>
-					<li><a href="/users/user-profile">User Profile</a></li>
-					<li><a href="/users/sign-out">Sign Out</a></li>
+					<li><a class="waves-effect waves-light orange accent-3 btn" href="/cats/game">Play a Game!</a></li>
+					<li><a class="waves-effect waves-light orange accent-3 btn" href="/users/leaderboard">Leader Board</a></li>
+					<li><a class="waves-effect waves-light orange accent-3 btn" href="/users/profile">User Profile</a></li>
+					<li><a class="waves-effect waves-light orange accent-3 btn" href="/users/sign-out">Sign Out</a></li>
 				{{/if}}
 		      </ul>
 		      <ul id="nav-mobile" class="side-nav">
 		      	{{#unless logged_in}}
-					<li><a href="/users/sign-in">Sign In</a></li>
-					<li><a href="/users/new">Sign Up</a></li>
+					<li><a class="waves-effect waves-light orange accent-3 btn" href="/users/sign-in">Sign In</a></li>
+					<li><a class="waves-effect waves-light orange accent-3 btn" href="/users/new">Sign Up</a></li>
 				{{/unless}}
 
 				{{#if logged_in}}
-					<li><a href="/cats/game">Play a Game!</a></li>
-					<li><a href="/users/sign-out">Sign Out</a></li>
-					<li><a href="/users/leaderboard">Leader Board</a></li>
-					<li><a href="/users/user-profile">User Profile</a></li>
+					<li><a class="waves-effect waves-light orange accent-3 btn" href="/cats/game">Play a Game!</a></li>
+					<li><a class="waves-effect waves-light orange accent-3 btn" href="/users/sign-out">Sign Out</a></li>
+					<li><a class="waves-effect waves-light orange accent-3 btn" href="/users/leaderboard">Leader Board</a></li>
+					<li><a class="waves-effect waves-light orange accent-3 btn" href="/users/user-profile">User Profile</a></li>
 				{{/if}}
 		      </ul>
 
@@ -55,7 +55,7 @@ Here is the main HTML where handlebars will render to
 
 		{{{ body }}}
 
-		<div class="section no-pad-bot" id="index-banner">
+	<!-- 	<div class="section no-pad-bot" id="index-banner">
 		    <div class="container">
 				<br><br>
 				<h1 class="header center orange-text">Starter Template</h1>
@@ -68,14 +68,14 @@ Here is the main HTML where handlebars will render to
 				<br><br>
 
 		    </div>
-		</div>
+		</div> -->
 
 
-		 <div class="container">
-		    <div class="section">
+		 <!-- <div class="container">
+		    <div class="section"> -->
 
 		      <!--   Icon Section   -->
-		      <div class="row">
+		      <!-- <div class="row">
 		        <div class="col s12 m4">
 		          <div class="icon-block">
 		            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
@@ -102,16 +102,16 @@ Here is the main HTML where handlebars will render to
 		            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
 		          </div>
 		        </div>
-		      </div>
+		      </div> -->
 
-		    </div>
-		    <br><br>
+		    <!-- </div> -->
+		  <!--   <br><br>
 
 		    <div class="section">
 
 		    </div>
 		  </div>
-
+ -->
 		  <footer class="page-footer orange">
 		    <div class="container">
 		      <div class="row">
