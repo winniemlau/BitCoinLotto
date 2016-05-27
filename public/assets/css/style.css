@@ -4,11 +4,13 @@ body {
     background-repeat: repeat-y;
 }
 
-.container{
+
+.container {
   width:640px;
 }
 
-.b {
+
+.b{
     display: inline-block;
     position: relative;
     margin: 1%;
@@ -18,7 +20,6 @@ body {
     background-color: lightgrey;
     color: #000;
     border-radius: 10px;
-
 }
 
 .boxed{
@@ -72,6 +73,7 @@ p {
 .icon-block {
   padding: 0 15px;
 }
+
 .icon-block .material-icons {
 	font-size: inherit;
 }
@@ -109,14 +111,11 @@ input[type=password] {
 input:focus {
     outline: none;
     border-color: #326670;
-    box-shadow: 0 0 10px #326670a;
-
+    box-shadow: 0 0 10px #326670;
 }
-
 
 button[type=submit] {
     color: white;
-
 }
 
 label {
