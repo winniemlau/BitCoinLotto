@@ -42,7 +42,7 @@ router.get('/users/sign-in', function(req,res) {
 
 router.get('/users/sign-out', function(req,res) {
   req.session.destroy(function(err) {
-     res.redirect('/cats')
+     res.redirect('/users/leaderboard')
   })
 });
 
@@ -87,7 +87,7 @@ router.post('/users/create', function(req,res) {
 							req.session.user_id = user.id;
 							req.session.user_email = user.email;
 							req.session.username = user.username;
-							res.redirect('/cats')
+							res.redirect('/cats/game')
 						});
 					});
 			});
