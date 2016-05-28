@@ -103,7 +103,7 @@ var User = sequelizeConnection.define("users", {
    created_at: {
       type: Sequelize.DATE
    },
-   modified_at: {
+   updated_at: {
       type: Sequelize.DATE
    }
 });

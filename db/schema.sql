@@ -21,7 +21,6 @@ CREATE TABLE cats
 	user_id int NOT NULL,
 	made_at timestamp NOT NULL,
 	betAmount varchar(255) NOT NULL,
-	blance int NOT NULL,
 	colorChosen varchar(255) NOT NULL,
 	colorLanded varcahr(255) NOT NULL,
 	user_win BOOLEAN DEFAULT false,
