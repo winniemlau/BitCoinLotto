@@ -8,14 +8,32 @@ var bcrypt = require('bcryptjs');
 var Cat = require('../models/models.js')[0];
 var User = require('../models/models.js')[1];
 
-// get username and balance
-router.get('/userbalance', function(req,res) {
-	
-})
-
 //this is the users_controller.js file
 router.get('/users/new', function(req,res) {
 	res.render('users/new');
+});
+
+router.get('/users/leaderboard', function(req,res) {
+	Cat.findAll({}).then(function(result) {
+		var hbsObject = {
+			cats: result,
+			logged_in : req.session.logged_in,
+			username: req.session.username
+		}
+		res.render('users/leaderboard', hbsObject);
+	})
+});
+
+//change this so that it prints out past user bets
+router.get('/users/profile', function(req,res) {
+	Cat.findAll({}).then(function(result) {
+		var hbsObject = {
+			cats: result,
+			logged_in : req.session.logged_in,
+			username: req.session.username
+		}
+		res.render('users/profile', hbsObject)
+	})
 });
 
 router.get('/users/sign-in', function(req,res) {
@@ -42,7 +60,7 @@ router.post('/users/login', function(req, res) {
           req.session.user_email = user.email;
           req.session.username = user.username;
 
-          res.redirect('/cats');
+          res.redirect('/users/profile');
         }
     });
   })

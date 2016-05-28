@@ -1,3 +1,11 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
 .icon-block {
   padding: 0 15px;
 }
@@ -5,73 +13,24 @@
 	font-size: inherit;
 }
 
-.modal {
-  border: 2px solid;
-  border-radius: 5px;
-  width: 640px;
+.the_wheel
+{
+    background-image: url(../graphics/wheel_back.png);
+    background-position: center;
+    background-repeat: none;
+    width: 438px; 
+    height: 582px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
 }
 
-.modal-content{
-  color: ##29b6f6;
-  font-size: 12pt;
+#canvas {
+  padding-top: 75px;
+  /*position: absolute;*/
+  margin-left: auto;
+  margin-right: auto;
+  /*right: 100px;*/
 }
 
-.modal-content h4 {
-  color:#29b6f6;
-  text-decoration: bold;
-  text-align: center;
-
-}
-
-input[type=text] {
-    border: 2px solid #29b6f6;
-    border-radius: 4px;
-    color: #ff9800;
-}
-
-input[type=password] {
-    border: 2px solid #29b6f6;
-    border-radius: 4px;
-    color: #ff9800;
-}
-
-input:focus {
-    outline: none;
-    border-color: #26a69a;
-    box-shadow: 0 0 10px #26a69a;
-
-}
-
-
-button[type=submit] {
-    color: white;
-
-}
-
-label {
-  font-size: 14pt;
-}
-
-/*li {
-  color: white;
-}*/
-
-i.icon-red{
-  color: red;
-}
-
-i.icon-blue {
-  color: blue;
-}
-
-i.icon-yellow {
-  color: yellow;
-}
-
-i.icon-green {
-  color: green;
-}
-
-i.icon-orange {
-  color: orange;
-}

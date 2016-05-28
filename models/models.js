@@ -1,66 +1,114 @@
-var connection = require('./connection.js');
+// var Sequelize = require("sequelize");
 
-connection.connect(function(err) {
-  if (err) {
-    console.error('error connecting: ' + err.stack);
-    return;
-  }
-  console.log('connected as id ' + connection.threadId);
+// var sequelizeConnection = require("../config/connection.js");
+
+// // Creates a "Cat" model that matches up with DB
+// var Cat = sequelizeConnection.define("cats", {
+// 	id: {
+// 		type: Sequelize.INTEGER,
+// 		autoIncrement: true,
+// 		primaryKey: true
+// 	},
+// 	user_id: {
+// 		type: Sequelize.INTEGER
+// 	},
+// 	name: {
+// 		type: Sequelize.STRING
+// 	},
+// 	sleepy: {
+// 		type: Sequelize.BOOLEAN
+// 	}
+// });
+
+// var User = sequelizeConnection.define("users", {
+// 	id: {
+// 		type: Sequelize.INTEGER,
+// 		autoIncrement: true,
+// 		primaryKey: true
+// 	},
+// 	username: {
+// 		type: Sequelize.STRING,
+// 	},
+//   email: {
+//     type: Sequelize.STRING,
+//   },
+// 	password_hash: {
+//     type: Sequelize.STRING,
+//   }
+// },
+// {
+// 	underscored: true
+// });
+
+// // looking up the best way to do this
+// Cat.belongsTo(User, {foreignKey: 'user_id'});
+// User.hasMany(Cat, {foreignKey: 'id'});
+
+// // Syncs with DB
+// Cat.sync();
+// User.sync();
+
+// // Makes the Cat Model available for other files (will also create a table)
+// module.exports = [Cat, User];
+
+var Sequelize = require("sequelize");
+
+var sequelizeConnection = require("../config/connection.js");
+
+// Creates a "Cat" model that matches up with DB
+var Cat = sequelizeConnection.define("cats", {
+   id: {
+       type: Sequelize.INTEGER,
+       autoIncrement: true,
+       primaryKey: true
+   },
+   user_id: {
+       type: Sequelize.STRING
+   },
+   betAmount: {
+       type: Sequelize.INTEGER
+   }, 
+   balance: {
+       type: Sequelize.INTEGER, 
+       defaultValue: 500
+   },
+   colorChosen: {
+       type: Sequelize.STRING
+   }, 
+   colorLanded: {
+       type: Sequelize.STRING
+   }, 
+   user_win: {
+       type: Sequelize.BOOLEAN
+   }
 });
 
-var orm = {
-  create: function(table, vals, cb) {
+var User = sequelizeConnection.define("users", {
+   id: {
+       type: Sequelize.INTEGER,
+       autoIncrement: true,
+       primaryKey: true
+   },
+   username: {
+       type: Sequelize.STRING,
+   },
+   email: {
+       type: Sequelize.STRING,
+   },
+   password_hash: {
+       type: Sequelize.STRING,
+   }
 
-    var queryString = 'INSERT INTO ' + table + ' (id,burger_name,devoured,date) VALUES (default,"' + vals + '",0,current_timestamp)';
+});
 
-    console.log(queryString);
 
-    connection.query(queryString, function(err, result) {
-      if (err) throw err;
-      cb(result);
+// looking up the best way to do this
+Cat.belongsTo(User, {foreignKey: 'user_id'});
+User.hasMany(Cat, {foreignKey: 'id'});
 
-    });
-  },
+// Syncs with DB
+Cat.sync();
+User.sync();
 
-  update: function(table, key, cb) {
-
-    var queryString = 'UPDATE ' + table + ' SET devoured = 1 WHERE id = ' + key;
-
-    console.log(queryString);
-
-    connection.query(queryString, function(err, result) {
-      if (err) throw err;
-      cb(result);
-
-    });
-  },
-
-  showall: function(table, cb) {
-    var queryString = 'SELECT * FROM ' + table;
-
-    console.log(queryString)
-
-    connection.query(queryString, function(err, result) {
-      if (err) throw err;
-      cb(result);
-    });
-  },
-
-  empty: function(table, cb) {
-    var queryString = 'DELETE FROM ' + table;
-
-    connection.query(queryString, function(err, result) {
-      if (err) throw err;
-
-      var queryString = 'ALTER TABLE ' + table + ' AUTO_INCREMENT = 0';
-
-      connection.query(queryString, function(err, result) {
-        if (err) throw err;
-        console.log(result)
-        cb(result);
-      })
-    })
-  }
-};
-
-module.exports = ormd;
+// Makes the Cat Model available for other files (will also create a table)
+module.exports = [Cat, User];

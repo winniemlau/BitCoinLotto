@@ -1,17 +1,30 @@
 ### Schema
-CREATE TABLE users_bitcoin
+
+CREATE DATABASE cat_db;
+USE cat_db;
+
+CREATE TABLE users
 (
 	id int NOT NULL AUTO_INCREMENT,
 	username varchar(255) NOT NULL,
 	email varchar(255) NOT NULL,
 	password_hash varchar(255) NOT NULL,
-	PRIMARY KEY (id), 
-	balance  int DEFAULT 500, 
-	created_at DATETIME NOT NULL, 
-	updated_at DATETIME NOT NULL 
-	color_chosen varchar(255) NOT NULL, 
-	color_landed varchar(255) NOT NULL, 
-	bet_amount int NOT NULL, 
-	balance_up int NOT NULL,
-	balance_down int NOT NULL
+	balance int NOT NULL,
+	created_at timestamp NOT NULL,
+	updated_at timestamp NOT NULL,
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE cats
+(
+	id int NOT NULL AUTO_INCREMENT,
+	user_id int NOT NULL,
+	made_at timestamp NOT NULL,
+	betAmount varchar(255) NOT NULL,
+	blance int NOT NULL,
+	colorChosen varchar(255) NOT NULL,
+	colorLanded varcahr(255) NOT NULL,
+	user_win BOOLEAN DEFAULT false,
+	PRIMARY KEY (id),
+	FOREIGN KEY (user_id) REFERENCES users(id)
 );
