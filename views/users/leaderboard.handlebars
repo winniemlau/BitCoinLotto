@@ -10,10 +10,11 @@
       <table>
         <thead>
           <tr>
-              <th data-field="id">User Name</th>
-              <th data-field="bet_amount">Bet Ammount</th>
-              <th data-field="bet_on">Bet On</th>
-              <th data-field="win_loss">Win / Loss</th>
+              <th data-field="username">User Name</th>
+              <th data-field="betAmount">Bet Amount</th>
+              <th data-field="colorBet">Color Chosen</th>
+              <th data-field="colorLanded">Color Landed
+              <th data-field="payout">Payout</th>
           </tr>
         </thead>
 
@@ -27,10 +28,13 @@
                 {{this.bet_ammount}}
               </td>
               <td>
-                {{this.bet_choice}}
+                {{this.colorChosen}}
               </td>
               <td>
-                {{this.win_loss}}
+                {{this.colorLanded}}
+              </td>
+              <td>
+                {{this.payout}}
               </td>
             </tr>
           {{/each}}
