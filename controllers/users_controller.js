@@ -90,15 +90,15 @@ router.post('/users/create', function(req, res) {
             email: req.body.email,
             password_hash: hash
           }).then(function(user) {
-
             req.session.logged_in = true;
             req.session.user_id = user.id;
             req.session.user_email = user.email;
             req.session.username = user.username;
-            console.log('post users/create')
+            console.log('post users/create');
+            res.redirect('/cats/game')
           });
         });
-      });
+			});
 
     }
   });
