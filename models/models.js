@@ -65,13 +65,12 @@ var Cat = sequelizeConnection.define("cats", {
    user_id: {
        type: Sequelize.STRING
    },
+   made_at: {
+      type: Sequelize.DATE
+   },
    betAmount: {
        type: Sequelize.INTEGER
    }, 
-   balance: {
-       type: Sequelize.INTEGER, 
-       defaultValue: 500
-   },
    colorChosen: {
        type: Sequelize.STRING
    }, 
@@ -90,15 +89,23 @@ var User = sequelizeConnection.define("users", {
        primaryKey: true
    },
    username: {
-       type: Sequelize.STRING,
+       type: Sequelize.STRING
    },
    email: {
-       type: Sequelize.STRING,
+       type: Sequelize.STRING
    },
    password_hash: {
-       type: Sequelize.STRING,
+       type: Sequelize.STRING
+   },
+   balance: {
+      type: Sequelize.INTEGER
+   },
+   created_at: {
+      type: Sequelize.DATE
+   },
+   modified_at: {
+      type: Sequelize.DATE
    }
-
 });
 
 
