@@ -98,7 +98,8 @@ var User = sequelizeConnection.define("users", {
        type: Sequelize.STRING
    },
    balance: {
-      type: Sequelize.INTEGER
+      type: Sequelize.INTEGER, 
+      defaultValue: 500
    },
    created_at: {
       type: Sequelize.DATE
